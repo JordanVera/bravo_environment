@@ -115,7 +115,10 @@ export default function HomePage() {
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
             Certified &amp; approved
           </p>
-          <CredentialLogos size="sm" className="justify-center md:justify-end" />
+          <CredentialLogos
+            size="sm"
+            className="justify-center md:justify-end"
+          />
         </div>
       </div>
 
@@ -250,6 +253,11 @@ export default function HomePage() {
             </StaggerItem>
           ))}
         </Stagger>
+        <FadeIn className="mt-8 flex justify-center">
+          <Button asChild variant="outline" className="h-11 px-6">
+            <Link href="/about">About Bravo Environment</Link>
+          </Button>
+        </FadeIn>
       </Section>
 
       {/* Lead form */}

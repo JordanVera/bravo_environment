@@ -35,6 +35,12 @@ export function SiteFooter() {
             Property restoration and disinfection services serving Houston, TX and surrounding
             communities. EPA & FDA approved products. NORMI certified.
           </p>
+          <Link
+            href="/about"
+            className="mt-3 inline-block text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+          >
+            About Bravo
+          </Link>
           <div className="mt-5 space-y-2.5 text-sm">
             <a
               href={site.phoneHref}

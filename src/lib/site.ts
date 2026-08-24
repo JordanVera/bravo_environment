@@ -67,6 +67,6 @@ export const formsubmitEndpoint = `https://formsubmit.co/${site.email}`;
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/#why-us", label: "Why Us" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Get a Quote" },
 ] as const;

@@ -4,10 +4,10 @@ import {
   MapPinIcon,
   ClockIcon,
   CheckIcon,
-  ShieldCheckIcon,
   MailIcon,
 } from 'lucide-react';
 
+import { CredentialLogos } from '@/components/credential-logos';
 import { FadeIn } from '@/components/motion';
 import { PageHero } from '@/components/page-hero';
 import { Section } from '@/components/section';
@@ -109,13 +109,11 @@ export default function ContactPage() {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-3 border-t border-border pt-4">
-              {site.credentials.map((cred) => (
-                <div key={cred} className="flex items-center gap-1.5 text-xs font-medium">
-                  <ShieldCheckIcon className="size-3.5 text-primary" />
-                  {cred}
-                </div>
-              ))}
+            <div className="border-t border-border pt-4">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                Certified &amp; approved
+              </p>
+              <CredentialLogos size="sm" className="justify-start" />
             </div>
           </FadeIn>
 

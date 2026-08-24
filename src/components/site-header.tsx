@@ -16,13 +16,19 @@ import {
 } from '@/components/ui/sheet';
 import { nav, site } from '@/lib/site';
 
+function isActivePath(pathname: string, href: string) {
+  if (href === '/') return pathname === '/';
+  if (href.startsWith('/#')) return false;
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/95 backdrop-blur-md">
-      <div className="border-b border-primary/20 bg-primary/10">
+      {/* <div className="border-b border-primary/20 bg-primary/10">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 text-sm md:px-6">
           <div className="flex items-center gap-2 font-medium text-foreground/90">
             <ShieldCheckIcon className="size-4 text-primary" />
@@ -36,7 +42,7 @@ export function SiteHeader() {
             {site.phone}
           </a>
         </div>
-      </div>
+      </div> */}
 
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
         <Link href="/" className="shrink-0">
@@ -56,7 +62,7 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                pathname === item.href
+                isActivePath(pathname, item.href)
                   ? 'text-primary'
                   : 'text-foreground/75 hover:text-foreground'
               }`}
@@ -69,7 +75,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <a
             href={site.phoneHref}
-            className="hidden items-center gap-1.5 text-sm font-medium text-foreground/70 transition-colors hover:text-primary md:flex"
+            className="hidden items-center gap-1.5 text-sm font-medium text-black transition-colors hover:bg-white/80 md:flex bg-white px-3 py-1.5 rounded-md"
           >
             <PhoneIcon className="size-3.5" />
             {site.phone}
@@ -80,8 +86,17 @@ export function SiteHeader() {
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="lg:hidden" aria-label="Open menu">
-                {open ? <XIcon className="size-4" /> : <MenuIcon className="size-4" />}
+              <Button
+                variant="outline"
+                size="icon"
+                className="lg:hidden"
+                aria-label="Open menu"
+              >
+                {open ? (
+                  <XIcon className="size-4" />
+                ) : (
+                  <MenuIcon className="size-4" />
+                )}
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80">
@@ -118,7 +133,7 @@ export function SiteHeader() {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-                      pathname === item.href
+                      isActivePath(pathname, item.href)
                         ? 'bg-primary/10 text-primary'
                         : 'text-foreground hover:bg-muted'
                     }`}

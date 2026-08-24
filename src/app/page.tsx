@@ -4,22 +4,17 @@ import {
   PhoneIcon,
   ShieldCheckIcon,
   CheckCircleIcon,
-  SparklesIcon,
-  FlameIcon,
-  DropletIcon,
-  WindIcon,
-  AlertTriangleIcon,
-  HardHatIcon,
   BadgeCheckIcon,
   FlaskConicalIcon,
   LeafIcon,
   ClockIcon,
 } from 'lucide-react';
 
+import { CredentialLogos } from '@/components/credential-logos';
 import { HeroKenBurns } from '@/components/hero-ken-burns';
 import { FadeIn, Stagger, StaggerItem } from '@/components/motion';
 import { Section, SectionHeading } from '@/components/section';
-import { Badge } from '@/components/ui/badge';
+import { ServiceCard } from '@/components/service-card';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LeadForm } from '@/components/lead-form';
@@ -29,16 +24,6 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Water, Mold & Fire Restoration · Disinfection Services Houston TX',
   description: site.description,
-};
-
-const iconMap: Record<string, React.ElementType> = {
-  Droplets: DropletIcon,
-  ShieldCheck: ShieldCheckIcon,
-  Flame: FlameIcon,
-  Sparkles: SparklesIcon,
-  BadgeCheck: BadgeCheckIcon,
-  AlertTriangle: AlertTriangleIcon,
-  HardHat: HardHatIcon,
 };
 
 const trustItems = [
@@ -125,6 +110,15 @@ export default function HomePage() {
         </div>
       </div>
 
+      <div className="border-b border-border bg-card/40">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-6 md:flex-row md:justify-between md:px-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            Certified &amp; approved
+          </p>
+          <CredentialLogos size="sm" className="justify-center md:justify-end" />
+        </div>
+      </div>
+
       {/* Services */}
       <Section id="services">
         <SectionHeading
@@ -132,39 +126,18 @@ export default function HomePage() {
           title="Complete property restoration &amp; protection"
           description="From emergency damage restoration to proactive antimicrobial protection — one company, EPA-approved standards, every step of the way."
         />
-        <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {services.map((service) => {
-            const Icon = iconMap[service.icon] ?? ShieldCheckIcon;
-            return (
-              <StaggerItem key={service.slug}>
-                <Card className="h-full transition-shadow hover:glow-primary">
-                  <CardHeader>
-                    <div className="mb-3 flex size-10 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon className="size-5 text-primary" />
-                    </div>
-                    <CardTitle className="text-sm">{service.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <p className="text-xs leading-relaxed text-muted-foreground">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-1">
-                      {service.bullets.map((b) => (
-                        <li
-                          key={b}
-                          className="flex items-start gap-2 text-xs text-muted-foreground"
-                        >
-                          <CheckCircleIcon className="mt-0.5 size-3 shrink-0 text-primary" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </StaggerItem>
-            );
-          })}
+        <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <StaggerItem key={service.slug}>
+              <ServiceCard service={service} />
+            </StaggerItem>
+          ))}
         </Stagger>
+        <FadeIn className="mt-8 flex justify-center">
+          <Button asChild variant="outline" className="h-11 px-6">
+            <Link href="/services">View all services</Link>
+          </Button>
+        </FadeIn>
       </Section>
 
       {/* Our Solution — antimicrobial highlight */}
@@ -222,6 +195,11 @@ export default function HomePage() {
                   and Trademark Office. Safe for your family, pets, and the
                   environment.
                 </p>
+                <CredentialLogos
+                  size="sm"
+                  ids={['epa', 'fda']}
+                  className="mt-4 justify-start"
+                />
               </CardContent>
             </Card>
             <div className="grid grid-cols-2 gap-4">

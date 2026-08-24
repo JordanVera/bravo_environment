@@ -30,13 +30,43 @@ export const site = {
     "NORMI — National Organization of Remediators and Mold Inspectors",
     "OSHA Compliant",
   ],
+  credentialLogos: [
+    {
+      id: "epa",
+      src: "/logo/usepa.jpg",
+      alt: "U.S. Environmental Protection Agency",
+      width: 100,
+      height: 100,
+    },
+    {
+      id: "fda",
+      src: "/logo/fda.jpg",
+      alt: "U.S. Food and Drug Administration",
+      width: 213,
+      height: 100,
+    },
+    {
+      id: "osha",
+      src: "/logo/osha.jpg",
+      alt: "Occupational Safety and Health Administration",
+      width: 193,
+      height: 100,
+    },
+    {
+      id: "normi",
+      src: "/logo/normi.jpg",
+      alt: "NORMI — National Organization of Remediators and Mold Inspectors",
+      width: 298,
+      height: 100,
+    },
+  ],
 } as const;
 
 export const formsubmitEndpoint = `https://formsubmit.co/${site.email}`;
 
 export const nav = [
   { href: "/", label: "Home" },
-  { href: "/#services", label: "Services" },
+  { href: "/services", label: "Services" },
   { href: "/#why-us", label: "Why Us" },
   { href: "/contact", label: "Get a Quote" },
 ] as const;

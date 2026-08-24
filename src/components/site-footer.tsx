@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MapPinIcon, PhoneIcon, MailIcon, ShieldCheckIcon, ClockIcon } from 'lucide-react';
 
+import { CredentialLogos } from '@/components/credential-logos';
 import { Separator } from '@/components/ui/separator';
 import { services } from '@/lib/services';
 import { site } from '@/lib/site';
@@ -10,13 +11,11 @@ export function SiteFooter() {
   return (
     <footer className="border-t-2 border-primary/30 bg-card">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-border py-5">
-          {site.credentials.map((cred) => (
-            <div key={cred} className="flex items-center gap-2 text-sm font-medium">
-              <ShieldCheckIcon className="size-4 shrink-0 text-primary" />
-              {cred}
-            </div>
-          ))}
+        <div className="flex flex-col items-center justify-between gap-4 border-b border-border py-5 sm:flex-row">
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            Certified &amp; approved
+          </p>
+          <CredentialLogos size="sm" className="justify-center sm:justify-end" />
         </div>
       </div>
 
@@ -67,12 +66,19 @@ export function SiteFooter() {
 
         <div>
           <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Services
+            <Link href="/services" className="transition-colors hover:text-foreground">
+              Services
+            </Link>
           </h3>
           <ul className="space-y-2 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
-                <span className="text-muted-foreground">{s.shortName}</span>
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {s.shortName}
+                </Link>
               </li>
             ))}
           </ul>
@@ -96,7 +102,7 @@ export function SiteFooter() {
       <Separator />
       <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-muted-foreground md:flex-row md:justify-between md:px-6">
         <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-        <p>EPA & FDA Approved · NORMI Certified · Houston, TX</p>
+        <p>EPA &amp; FDA Approved · NORMI Certified · OSHA Compliant · Houston, TX</p>
       </div>
     </footer>
   );

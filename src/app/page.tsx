@@ -16,6 +16,7 @@ import {
   ClockIcon,
 } from 'lucide-react';
 
+import { HeroKenBurns } from '@/components/hero-ken-burns';
 import { FadeIn, Stagger, StaggerItem } from '@/components/motion';
 import { Section, SectionHeading } from '@/components/section';
 import { Badge } from '@/components/ui/badge';
@@ -74,8 +75,8 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <div className="relative overflow-hidden border-b border-border env-grid">
-        <div className="absolute inset-0 pointer-events-none" />
+      <div className="relative overflow-hidden border-b border-border">
+        <HeroKenBurns />
         <div className="relative mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-36">
           <FadeIn>
             <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-primary uppercase">
@@ -89,7 +90,7 @@ export default function HomePage() {
             </h1>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-200 md:text-lg">
               Water, mold, fire, and disaster restoration combined with
               EPA/FDA-approved antimicrobial disinfection technology. Setting
               new standards for indoor air quality in Houston, TX.
@@ -102,7 +103,7 @@ export default function HomePage() {
             <Button
               asChild
               variant="outline"
-              className="h-12 px-6 bg-black/30 text-base font-medium"
+              className="h-12 px-6 border-white/20 bg-black/35 text-base font-medium"
             >
               <a href={site.phoneHref}>
                 <PhoneIcon className="size-4" />
@@ -114,7 +115,7 @@ export default function HomePage() {
             {trustItems.map((item) => (
               <div
                 key={item.label}
-                className="flex items-center gap-2 text-sm font-medium text-muted-foreground"
+                className="flex items-center gap-2 text-sm font-medium text-zinc-300"
               >
                 <item.icon className="size-4 text-primary" />
                 {item.label}

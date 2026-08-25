@@ -60,6 +60,42 @@ export const site = {
       height: 100,
     },
   ],
+  insuranceLogos: [
+    { id: "chubb", src: "/insurance/chubb.png", alt: "Chubb", width: 107, height: 71 },
+    {
+      id: "contractor-connection",
+      src: "/insurance/contractor-connection.png",
+      alt: "Contractor Connection by Crawford & Company",
+      width: 107,
+      height: 35,
+    },
+    { id: "farmers", src: "/insurance/farmers.jpg", alt: "Farmers Insurance", width: 940, height: 510 },
+    { id: "foremost", src: "/insurance/foremost.png", alt: "Foremost Insurance", width: 1024, height: 512 },
+    { id: "geico", src: "/insurance/geico.png", alt: "GEICO", width: 1920, height: 1080 },
+    {
+      id: "homeowners-of-america",
+      src: "/insurance/homeowners-of-america.png",
+      alt: "Homeowners of America",
+      width: 1425,
+      height: 375,
+    },
+    { id: "aig", src: "/insurance/aig.png", alt: "AIG", width: 107, height: 57 },
+    { id: "allstate", src: "/insurance/allstate.jpg", alt: "Allstate", width: 107, height: 63 },
+    { id: "liberty-mutual", src: "/insurance/libertymutual.png", alt: "Liberty Mutual", width: 107, height: 60 },
+    {
+      id: "lionsbridge",
+      src: "/insurance/lionsbridge.webp",
+      alt: "Lionsbridge Contractor Group",
+      width: 107,
+      height: 74,
+    },
+    { id: "metlife", src: "/insurance/metlife.webp", alt: "MetLife", width: 780, height: 475 },
+    { id: "pekin", src: "/insurance/pekin.png", alt: "Pekin Insurance", width: 500, height: 153 },
+    { id: "progressive", src: "/insurance/progressive.png", alt: "Progressive", width: 3840, height: 2160 },
+    { id: "sedgwick", src: "/insurance/sedgwick.jpg", alt: "Sedgwick", width: 107, height: 27 },
+    { id: "state-farm", src: "/insurance/statefarm.png", alt: "State Farm", width: 107, height: 15 },
+    { id: "westhill", src: "/insurance/westhill.png", alt: "Westhill", width: 107, height: 21 },
+  ],
 } as const;
 
 export const formsubmitEndpoint = `https://formsubmit.co/${site.email}`;

@@ -8,9 +8,12 @@ import {
   FlaskConicalIcon,
   LeafIcon,
   ClockIcon,
+  AlertTriangleIcon,
+  FileTextIcon,
 } from 'lucide-react';
 
 import { CredentialLogos } from '@/components/credential-logos';
+import { InsuranceLogos } from '@/components/insurance-logos';
 import { HeroKenBurns } from '@/components/hero-ken-burns';
 import { FadeIn, Stagger, StaggerItem } from '@/components/motion';
 import { Section, SectionHeading } from '@/components/section';
@@ -257,6 +260,67 @@ export default function HomePage() {
           <Button asChild variant="outline" className="h-11 px-6">
             <Link href="/about">About Bravo Environment</Link>
           </Button>
+        </FadeIn>
+      </Section>
+
+      {/* Insurance */}
+      <Section id="insurance" className="bg-card/30">
+        <div className="grid items-start gap-12 lg:grid-cols-2">
+          <FadeIn>
+            <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-primary uppercase">
+              Insurance
+            </p>
+            <h2 className="font-heading text-4xl font-bold tracking-tight text-balance md:text-5xl">
+              We work with all major insurance providers
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Property damage is stressful enough. We handle the documentation,
+              communicate directly with your adjuster, and keep your claim moving
+              so you can focus on getting the building back.
+            </p>
+            <ul className="mt-8 space-y-3">
+              {[
+                'Complete damage documentation and moisture maps',
+                'Direct communication with your adjuster',
+                'Clear, detailed estimates for your claim',
+                'Assistance from inspection through final approval',
+                'Experience working with all major carriers',
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm font-medium">
+                  <CheckCircleIcon className="mt-0.5 size-5 shrink-0 text-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </FadeIn>
+
+          <FadeIn delay={0.08} className="space-y-4">
+            <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
+              <AlertTriangleIcon className="mb-3 size-6 text-primary" />
+              <h3 className="text-lg font-bold">Don&rsquo;t wait to file</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Insurance policies have time limits for reporting damage. The
+                sooner you document and report, the stronger your claim. We can
+                help you start the process today — at no cost.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <FileTextIcon className="mb-3 size-6 text-primary" />
+              <h3 className="text-lg font-bold">Full documentation included</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Every inspection includes moisture mapping, thermal imaging, and
+                a detailed damage report formatted for insurance claims — at no
+                additional charge.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+
+        <FadeIn className="mt-14">
+          <p className="mb-6 text-center text-xs font-semibold tracking-[0.2em] text-primary uppercase">
+            Insurance companies we work with
+          </p>
+          <InsuranceLogos />
         </FadeIn>
       </Section>
 
